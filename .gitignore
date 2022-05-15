@@ -1,2 +1,14 @@
 out
 rpmbuild
+
+# nix
+result
+
+# direnv
+.direnv
+
+# rust
+debug/
+target/
+**/*.rs.bk
+*.pdb
