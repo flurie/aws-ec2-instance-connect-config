@@ -6,21 +6,15 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-reqwest = { version = "0.11", features = ["json"] }
-tokio = { version = "1", features = ["full"] }
-rustls = "0.20.5"
-aws-config = "0.12.0"
-aws-sdk-ec2instanceconnect = "0.12.0"
-structopt = { version = "0.3", default-features = false }
+tokio = { version = "1", default-features = false, features = ["full"] }
+aws-config = { version = "1.1.1", default-features = false }
+aws-sdk-ec2instanceconnect = { version = "1.9.0", default-features = false }
+syslog = "6.0"
+log = "0.4"
+regex = "1.10"
+anyhow = "1.0"
+users = "0.11"
 
-[[bin]]
-name = "eic_curl_authorized_keys"
-
-[[bin]]
-name = "eic_harvest_hostkeys"
-
-[[bin]]
-name = "eic_parse_authorized_keys"
-
-[[bin]]
-name = "eic_run_authorized_keys"
+[profile.release]
+strip = true  # Automatically strip symbols from the binary.
+lto = true

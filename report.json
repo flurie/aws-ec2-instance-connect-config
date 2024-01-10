@@ -1,0 +1,73 @@
+{
+  "version": 0,
+  "root_name": "cries",
+  "workspace_crates": {
+    "cries": {
+      "full_path": "/home/flurie/code/github/flurie/aws-ec2-instance-connect-config/Cargo.toml",
+      "dependencies": {
+        "tokio": {
+          "original_features": [
+            "macros",
+            "process",
+            "full",
+            "io-util",
+            "net",
+            "parking_lot",
+            "io-std",
+            "sync",
+            "rt-multi-thread",
+            "signal",
+            "time",
+            "rt",
+            "fs"
+          ],
+          "successfully_removed_features": [
+            "sync",
+            "signal",
+            "fs",
+            "net",
+            "rt",
+            "process",
+            "macros",
+            "time",
+            "parking_lot",
+            "rt-multi-thread",
+            "io-util",
+            "io-std"
+          ],
+          "unsuccessfully_removed_features": [
+            "full"
+          ]
+        },
+        "aws-sdk-ec2instanceconnect": {
+          "original_features": [
+            "rt-tokio",
+            "rustls"
+          ],
+          "successfully_removed_features": [
+            "rustls",
+            "rt-tokio"
+          ],
+          "unsuccessfully_removed_features": []
+        },
+        "aws-config": {
+          "original_features": [
+            "rustls",
+            "client-hyper",
+            "sso",
+            "rt-tokio",
+            "credentials-process"
+          ],
+          "successfully_removed_features": [
+            "rt-tokio",
+            "client-hyper",
+            "sso",
+            "rustls",
+            "credentials-process"
+          ],
+          "unsuccessfully_removed_features": []
+        }
+      }
+    }
+  }
+}
