@@ -72,6 +72,26 @@ async fn eic_curl_authorized_keys() -> Result<()> {
         .context("Invalid AWS region")?
         .as_str();
     let expected_signer = format!("managed-ssh-signer.{}.{}", region, domain.as_ref());
+    // TODO write to disk??
+    let eic = Vec::<str>::new();
+    let ocsp = HashMap::<str, str>::new();
+
+
+    
+    // should check if it's empty?
+    let certificate = imds.get("/managed-ssh-keys/signer-cert/").await?;
+    // should check if it's empty?
+    let staple_paths = imds.get("/managed-ssh-keys/signer-ocsp/").await?;
+
+    staple_paths.lines().iter().map(|path| {
+        let signer_ocsp = imds.get(format!("/managed-ssh-keys/signer-ocsp/{}", path)).await?;
+        ocsp.insert(path, signer_ocsp);
+    });
+
+    let keys_file = imds.get(format!("/managed-ssh-keys/active-keys/{}/", user)).await?;
+
+    // TODO need to read cacerts??
+
 
     Ok(())
 }
